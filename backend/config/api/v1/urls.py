@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.urls import path
+from interviews.views import AIInterviewStartView
 
 from accounts.views import LoginView, MeView
 from assessments.views import (
@@ -151,6 +152,12 @@ urlpatterns = [
         "institution/opportunities/",
         InstitutionOpportunityListView.as_view(),
         name="institution-opportunities",
+    ),
+
+    path(
+        "interviews/start/",
+        AIInterviewStartView.as_view(),
+        name="ai-interview-start",
     ),
 ]
 
