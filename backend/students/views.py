@@ -2,8 +2,11 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from opportunities.models import Opportunity
+from opportunities.serializers import OpportunitySerializer
+
 from assessments.models import Attempt
-from .models import StudentSkill, TeacherStudent
+from .models import StudentSkill, InstitutionStudent, TeacherStudent
 from .serializers import StudentSkillSerializer
 
 class SkillTwinView(APIView):
@@ -327,3 +330,98 @@ class TeacherStudentDetailView(APIView):
                 "history": history,
             },
         })
+
+class InstitutionStudentListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        if request.user.role != "institution":
+            return Response(
+                {
+                    "detail": (
+                        "Only institutions can access "
+                        "this endpoint."
+                    )
+                },
+                status=403,
+            )
+
+        assignments = (
+            InstitutionStudent.objects
+            .filter(institution=request.user)
+            .select_related("student")
+            .order_by("student__first_name")
+        )
+
+        students = []
+
+        for assignment in assignments:
+            student = assignment.student
+
+            student_skills = (
+                StudentSkill.objects
+                .filter(student=student)
+                .select_related("skill")
+                .order_by("skill__name")
+            )
+
+            skills = StudentSkillSerializer(
+                student_skills,
+                many=True,
+            ).data
+
+            students.append({
+                "id": student.id,
+                "username": student.username,
+                "name": (
+                    f"{student.first_name} "
+                    f"{student.last_name}"
+                ).strip(),
+                "email": student.email,
+                "skills": skills,
+            })
+
+        return Response({
+            "institution": {
+                "id": request.user.id,
+                "username": request.user.username,
+                "name": (
+                    f"{request.user.first_name} "
+                    f"{request.user.last_name}"
+                ).strip(),
+            },
+            "count": len(students),
+            "students": students,
+        })
+
+class InstitutionOpportunityListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        if request.user.role != "institution":
+            return Response(
+                {
+                    "detail": (
+                        "Only institutions can access "
+                        "this endpoint."
+                    )
+                },
+                status=403,
+            )
+
+        opportunities = (
+            Opportunity.objects
+            .filter(is_active=True)
+            .select_related("industry")
+            .prefetch_related(
+                "opportunity_skills__skill"
+            )
+            .order_by("-created_at")
+        )
+
+        return Response(
+            OpportunitySerializer(
+                opportunities,
+                many=True,
+            ).data
+        )

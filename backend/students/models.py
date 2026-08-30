@@ -82,3 +82,34 @@ class TeacherStudent(models.Model):
             f"{self.teacher.username} -> "
             f"{self.student.username}"
         )
+
+class InstitutionStudent(models.Model):
+    institution = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="institution_students",
+        limit_choices_to={"role": "institution"},
+    )
+
+    student = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="student_institutions",
+        limit_choices_to={"role": "student"},
+    )
+
+    assigned_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    class Meta:
+        unique_together = (
+            "institution",
+            "student",
+        )
+
+    def __str__(self):
+        return (
+            f"{self.institution.username} -> "
+            f"{self.student.username}"
+        )

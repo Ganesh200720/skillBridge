@@ -639,6 +639,34 @@ class TeacherOpportunityListView(APIView):
             ).data
         )
 
+class StudentOpportunityListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        if request.user.role != "student":
+            return Response(
+                {
+                    "detail": "Only students can access this endpoint."
+                },
+                status=403,
+            )
+
+        opportunities = (
+            Opportunity.objects
+            .filter(is_active=True)
+            .select_related("industry")
+            .prefetch_related(
+                "opportunity_skills__skill"
+            )
+            .order_by("-created_at")
+        )
+
+        return Response(
+            OpportunitySerializer(
+                opportunities,
+                many=True,
+            ).data
+        )
 class TeacherOpportunityMatchesView(APIView):
 
     permission_classes = [IsAuthenticated]

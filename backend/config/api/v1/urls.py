@@ -13,6 +13,8 @@ from students.views import (
     TeacherStudentListView,
     SkillTwinView,
     TeacherStudentDetailView,
+    InstitutionStudentListView,
+    InstitutionOpportunityListView,
 )
 
 from opportunities.views import (
@@ -23,6 +25,7 @@ from opportunities.views import (
     IndustryOpportunityDetailView,
     TeacherOpportunityListView,
     TeacherOpportunityMatchesView,
+    StudentOpportunityListView,
 )
 
 from learning.views import NextSkillView
@@ -131,6 +134,23 @@ urlpatterns = [
         "teacher/opportunities/<int:opportunity_id>/matches/",
         TeacherOpportunityMatchesView.as_view(),
         name="teacher-opportunity-matches",
+    ),
+
+    path(
+        "student/opportunities/",
+        StudentOpportunityListView.as_view(),
+    ),
+
+    path(
+        "institution/students/",
+        InstitutionStudentListView.as_view(),
+        name="institution-students",
+    ),
+
+    path(
+        "institution/opportunities/",
+        InstitutionOpportunityListView.as_view(),
+        name="institution-opportunities",
     ),
 ]
 
