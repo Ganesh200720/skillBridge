@@ -9,12 +9,22 @@ from assessments.views import (
     SkillTestSubmitView,
     AssessmentHistoryView,
 )
-from students.views import SkillTwinView
+from students.views import (
+    TeacherStudentListView,
+    SkillTwinView,
+    TeacherStudentDetailView,
+)
+
 from opportunities.views import (
     RoleListView,
     RoleDetailView,
     RoleRecommendationView,
+    IndustryOpportunityListView,
+    IndustryOpportunityDetailView,
+    TeacherOpportunityListView,
+    TeacherOpportunityMatchesView,
 )
+
 from learning.views import NextSkillView
 
 def health_check(request):
@@ -85,6 +95,42 @@ urlpatterns = [
         "assessment-history/",
         AssessmentHistoryView.as_view(),
         name="assessment-history",
+    ),
+
+    path(
+        "industry/opportunities/",
+        IndustryOpportunityListView.as_view(),
+        name="industry-opportunity-list",
+    ),
+
+    path(
+        "industry/opportunities/<int:opportunity_id>/",
+        IndustryOpportunityDetailView.as_view(),
+        name="industry-opportunity-detail",
+    ),
+
+    path(
+        "teacher/students/",
+        TeacherStudentListView.as_view(),
+        name="teacher-students",
+    ),
+
+    path(
+        "teacher/students/<int:student_id>/",
+        TeacherStudentDetailView.as_view(),
+        name="teacher-student-detail",
+    ),
+
+    path(
+        "teacher/opportunities/",
+        TeacherOpportunityListView.as_view(),
+        name="teacher-opportunities",
+    ),
+
+    path(
+        "teacher/opportunities/<int:opportunity_id>/matches/",
+        TeacherOpportunityMatchesView.as_view(),
+        name="teacher-opportunity-matches",
     ),
 ]
 

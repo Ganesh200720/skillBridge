@@ -3,8 +3,10 @@ from django.db import models
 
 
 class User(AbstractUser):
+
     class Role(models.TextChoices):
         STUDENT = "student", "Student"
+        TEACHER = "teacher", "Teacher"
         INDUSTRY = "industry", "Industry"
         INSTITUTION = "institution", "Institution"
 

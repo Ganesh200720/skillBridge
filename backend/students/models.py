@@ -50,3 +50,35 @@ class StudentSkill(models.Model):
             f"{self.student.username} - "
             f"{self.skill.name}: {self.score}"
         )
+
+class TeacherStudent(models.Model):
+
+    teacher = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="assigned_students",
+        limit_choices_to={"role": "teacher"},
+    )
+
+    student = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="assigned_teachers",
+        limit_choices_to={"role": "student"},
+    )
+
+    assigned_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+
+    class Meta:
+        unique_together = (
+            "teacher",
+            "student",
+        )
+
+    def __str__(self):
+        return (
+            f"{self.teacher.username} -> "
+            f"{self.student.username}"
+        )
