@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "name": "Arjun Kumar",
+    "email": "student@demo.com",
+    "target_role": "Backend Developer",
+    "skills": {
+      "Python": 86,
+      "Django": 78,
+      "SQL": 52,
+      "DSA": 48,
+      "DBMS": 70,
+      "OOP": 75
+    }
+  },
+  {
+    "id": 2,
+    "name": "Rahul Sharma",
+    "email": "rahul@student.demo",
+    "target_role": "Backend Developer",
+    "skills": {
+      "Python": 90,
+      "Django": 82,
+      "SQL": 85,
+      "DSA": 80,
+      "DBMS": 78,
+      "OOP": 82
+    }
+  },
+  {
+    "id": 3,
+    "name": "Priya Reddy",
+    "email": "priya@student.demo",
+    "target_role": "Backend Developer",
+    "skills": {
+      "Python": 78,
+      "Django": 72,
+      "SQL": 88,
+      "DSA": 70,
+      "DBMS": 84,
+      "OOP": 76
+    }
+  },
+  {
+    "id": 4,
+    "name": "Neha Patel",
+    "email": "neha@student.demo",
+    "target_role": "Frontend Developer",
+    "skills": {
+      "Python": 55,
+      "Django": 40,
+      "SQL": 45,
+      "DSA": 60,
+      "DBMS": 50,
+      "OOP": 72,
+      "JavaScript": 92,
+      "React": 89
+    }
+  },
+  {
+    "id": 5,
+    "name": "Vikram Singh",
+    "email": "vikram@student.demo",
+    "target_role": "Backend Developer",
+    "skills": {
+      "Python": 82,
+      "Django": 75,
+      "SQL": 65,
+      "DSA": 88,
+      "DBMS": 72,
+      "OOP": 80
+    }
+  },
+  {
+    "id": 6,
+    "name": "Sneha Rao",
+    "email": "sneha@student.demo",
+    "target_role": "Data Analyst",
+    "skills": {
+      "Python": 84,
+      "Django": 30,
+      "SQL": 91,
+      "DSA": 65,
+      "DBMS": 90,
+      "OOP": 70
+    }
+  },
+  {
+    "id": 7,
+    "name": "Karthik Nair",
+    "email": "karthik@student.demo",
+    "target_role": "Backend Developer",
+    "skills": {
+      "Python": 72,
+      "Django": 68,
+      "SQL": 75,
+      "DSA": 72,
+      "DBMS": 68,
+      "OOP": 65
+    }
+  },
+  {
+    "id": 8,
+    "name": "Ananya Das",
+    "email": "ananya@student.demo",
+    "target_role": "Frontend Developer",
+    "skills": {
+      "Python": 45,
+      "Django": 35,
+      "SQL": 50,
+      "DSA": 55,
+      "DBMS": 45,
+      "OOP": 80,
+      "JavaScript": 88,
+      "React": 94
+    }
+  },
+  {
+    "id": 9,
+    "name": "Rohan Mehta",
+    "email": "rohan@student.demo",
+    "target_role": "Backend Developer",
+    "skills": {
+      "Python": 88,
+      "Django": 80,
+      "SQL": 76,
+      "DSA": 82,
+      "DBMS": 74,
+      "OOP": 78
+    }
+  },
+  {
+    "id": 10,
+    "name": "Meera Joshi",
+    "email": "meera@student.demo",
+    "target_role": "Data Analyst",
+    "skills": {
+      "Python": 79,
+      "Django": 25,
+      "SQL": 86,
+      "DSA": 58,
+      "DBMS": 92,
+      "OOP": 68
+    }
+  }
+]

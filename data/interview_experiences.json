@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "company": "TechNova",
+    "role": "Backend Developer",
+    "round": "Technical",
+    "topics": [
+      "SQL Joins",
+      "SQL Window Functions",
+      "DBMS Transactions",
+      "Django REST API"
+    ],
+    "experience": "The technical round focused on SQL joins, database concepts and Django REST APIs."
+  },
+  {
+    "id": 2,
+    "company": "TechNova",
+    "role": "Backend Developer",
+    "round": "Problem Solving",
+    "topics": [
+      "DSA Arrays",
+      "DSA Graph Traversal"
+    ],
+    "experience": "The interviewer asked array-based problems followed by a graph traversal problem."
+  },
+  {
+    "id": 3,
+    "company": "DataWorks",
+    "role": "Data Analyst",
+    "round": "Technical",
+    "topics": [
+      "SQL Joins",
+      "SQL Aggregations",
+      "DBMS Transactions"
+    ],
+    "experience": "The interview focused heavily on SQL queries, aggregations and transaction concepts."
+  },
+  {
+    "id": 4,
+    "company": "CloudSphere",
+    "role": "Frontend Developer",
+    "round": "Technical",
+    "topics": [
+      "JavaScript",
+      "React Components",
+      "OOP"
+    ],
+    "experience": "The interviewer focused on JavaScript fundamentals, React components and object-oriented concepts."
+  }
+]

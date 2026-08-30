@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "company": "TechNova",
+    "role": "Backend Developer",
+    "description": "Backend development internship focused on Python and Django.",
+    "required_skills": [
+      "Python",
+      "Django",
+      "SQL",
+      "DSA"
+    ],
+    "preferred_skills": [
+      "DBMS",
+      "OOP"
+    ]
+  },
+  {
+    "id": 2,
+    "company": "DataWorks",
+    "role": "Data Analyst",
+    "description": "Entry-level data analysis role focused on SQL and databases.",
+    "required_skills": [
+      "Python",
+      "SQL",
+      "DBMS"
+    ],
+    "preferred_skills": [
+      "DSA"
+    ]
+  },
+  {
+    "id": 3,
+    "company": "CloudSphere",
+    "role": "Frontend Developer",
+    "description": "Frontend role focused on modern JavaScript and React development.",
+    "required_skills": [
+      "JavaScript",
+      "React"
+    ],
+    "preferred_skills": [
+      "OOP"
+    ]
+  }
+]

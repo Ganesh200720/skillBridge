@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "TechNova",
+    "recruiter_name": "Priya Reddy",
+    "recruiter_email": "industry@demo.com"
+  },
+  {
+    "id": 2,
+    "name": "DataWorks",
+    "recruiter_name": "Amit Verma",
+    "recruiter_email": "recruiter@dataworks.demo"
+  },
+  {
+    "id": 3,
+    "name": "CloudSphere",
+    "recruiter_name": "Kiran Rao",
+    "recruiter_email": "recruiter@cloudsphere.demo"
+  }
+]

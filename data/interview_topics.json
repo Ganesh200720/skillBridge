@@ -1,0 +1,36 @@
+[
+  {
+    "role": "Backend Developer",
+    "company": "TechNova",
+    "topics": [
+      "SQL Joins",
+      "SQL Window Functions",
+      "DBMS Transactions",
+      "Database Indexing",
+      "DSA Arrays",
+      "DSA Graph Traversal",
+      "Python OOP",
+      "Django REST API"
+    ]
+  },
+  {
+    "role": "Data Analyst",
+    "company": "DataWorks",
+    "topics": [
+      "SQL Joins",
+      "SQL Aggregations",
+      "Database Normalization",
+      "DBMS Transactions"
+    ]
+  },
+  {
+    "role": "Frontend Developer",
+    "company": "CloudSphere",
+    "topics": [
+      "JavaScript",
+      "React Components",
+      "State Management",
+      "OOP"
+    ]
+  }
+]

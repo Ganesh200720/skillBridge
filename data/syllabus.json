@@ -1,0 +1,11 @@
+{
+  "institution": "Demo Engineering College",
+  "course": "Database Management Systems",
+  "topics": [
+    "ER Model",
+    "Relational Model",
+    "SQL",
+    "Normalization",
+    "Transactions"
+  ]
+}

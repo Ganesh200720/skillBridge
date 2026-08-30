@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "name": "Backend Developer",
+    "required_skills": [
+      "Python",
+      "Django",
+      "SQL",
+      "DSA"
+    ],
+    "preferred_skills": [
+      "DBMS",
+      "OOP"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Data Analyst",
+    "required_skills": [
+      "Python",
+      "SQL",
+      "DBMS"
+    ],
+    "preferred_skills": [
+      "DSA",
+      "OOP"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Frontend Developer",
+    "required_skills": [
+      "JavaScript",
+      "React"
+    ],
+    "preferred_skills": [
+      "OOP"
+    ]
+  }
+]

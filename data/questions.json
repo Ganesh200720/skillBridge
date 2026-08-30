@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "question": "What is the output of len([1, 2, 3]) in Python?",
+    "options": ["2", "3", "4", "Error"],
+    "answer": "3",
+    "skill": "Python",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "question": "Which Python keyword is used to define a function?",
+    "options": ["func", "define", "def", "function"],
+    "answer": "def",
+    "skill": "Python",
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "question": "Which Django file commonly contains URL routing configuration?",
+    "options": ["models.py", "urls.py", "views.py", "admin.py"],
+    "answer": "urls.py",
+    "skill": "Django",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "question": "Which Django component is primarily responsible for handling HTTP requests?",
+    "options": ["Views", "Models", "Migrations", "Admin"],
+    "answer": "Views",
+    "skill": "Django",
+    "difficulty": "medium"
+  },
+  {
+    "id": 5,
+    "question": "Which SQL clause is used to filter grouped records?",
+    "options": ["WHERE", "GROUP BY", "HAVING", "ORDER BY"],
+    "answer": "HAVING",
+    "skill": "SQL",
+    "difficulty": "medium"
+  },
+  {
+    "id": 6,
+    "question": "Which SQL command is used to retrieve data from a table?",
+    "options": ["GET", "SELECT", "FETCH", "READ"],
+    "answer": "SELECT",
+    "skill": "SQL",
+    "difficulty": "easy"
+  },
+  {
+    "id": 7,
+    "question": "Which SQL operation combines rows from two or more tables?",
+    "options": ["JOIN", "MERGE", "CONNECT", "UNION"],
+    "answer": "JOIN",
+    "skill": "SQL",
+    "difficulty": "medium"
+  },
+  {
+    "id": 8,
+    "question": "What is the time complexity of binary search on a sorted array?",
+    "options": ["O(n)", "O(log n)", "O(n²)", "O(1)"],
+    "answer": "O(log n)",
+    "skill": "DSA",
+    "difficulty": "medium"
+  },
+  {
+    "id": 9,
+    "question": "Which data structure follows the LIFO principle?",
+    "options": ["Queue", "Stack", "Array", "Linked List"],
+    "answer": "Stack",
+    "skill": "DSA",
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "question": "Which data structure is commonly used for BFS traversal?",
+    "options": ["Stack", "Queue", "Heap", "Tree"],
+    "answer": "Queue",
+    "skill": "DSA",
+    "difficulty": "medium"
+  },
+  {
+    "id": 11,
+    "question": "What does normalization in DBMS primarily reduce?",
+    "options": [
+      "Network latency",
+      "Data redundancy",
+      "CPU usage",
+      "Number of users"
+    ],
+    "answer": "Data redundancy",
+    "skill": "DBMS",
+    "difficulty": "medium"
+  },
+  {
+    "id": 12,
+    "question": "Which DBMS property ensures that a transaction is completed fully or not at all?",
+    "options": ["Consistency", "Isolation", "Atomicity", "Durability"],
+    "answer": "Atomicity",
+    "skill": "DBMS",
+    "difficulty": "medium"
+  },
+  {
+    "id": 13,
+    "question": "Which OOP concept allows a child class to reuse functionality from a parent class?",
+    "options": [
+      "Encapsulation",
+      "Inheritance",
+      "Abstraction",
+      "Polymorphism"
+    ],
+    "answer": "Inheritance",
+    "skill": "OOP",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "question": "Which OOP concept allows the same interface to have different implementations?",
+    "options": [
+      "Inheritance",
+      "Polymorphism",
+      "Encapsulation",
+      "Composition"
+    ],
+    "answer": "Polymorphism",
+    "skill": "OOP",
+    "difficulty": "medium"
+  },
+  {
+    "id": 15,
+    "question": "Which JavaScript keyword declares a block-scoped variable that cannot be reassigned?",
+    "options": ["var", "let", "const", "static"],
+    "answer": "const",
+    "skill": "JavaScript",
+    "difficulty": "easy"
+  }
+]
