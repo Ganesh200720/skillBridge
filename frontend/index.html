@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Mock Interview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="stage">
+  <div class="panel">
+
+    <header class="panel-head">
+      <span class="eyebrow">On Air &mdash; AI Mock Interview</span>
+      <button id="history-toggle" class="ghost-link" type="button">Past sessions</button>
+    </header>
+
+    <!-- SUBJECT SCREEN -->
+    <section class="screen" id="screen-subject">
+      <h1>What are we<br>practicing today?</h1>
+      <p class="lede">Pick a subject and Natalie will run you through five spoken questions, then score your session.</p>
+
+      <form id="subject-form">
+        <label for="subject-input">Interview subject</label>
+        <input id="subject-input" type="text" placeholder="e.g. Python, System Design, Behavioral" autocomplete="off" required />
+        <button type="submit" class="btn-primary">
+          <span>Start interview</span>
+        </button>
+      </form>
+
+      <div id="subject-error" class="error-text" hidden></div>
+    </section>
+
+    <!-- INTERVIEW SCREEN -->
+    <section class="screen" id="screen-interview" hidden>
+      <div class="progress-row" id="progress-dots" aria-label="Interview progress"></div>
+
+      <p class="subject-tag" id="interview-subject-label"></p>
+
+      <div class="question-block">
+        <span class="q-label" id="q-status-label">Natalie is asking</span>
+        <h2 id="question-text">&nbsp;</h2>
+      </div>
+
+      <div class="mic-block">
+        <button id="record-btn" class="mic-btn" type="button" disabled>
+          <span class="mic-ring"></span>
+          <span class="mic-dot"></span>
+        </button>
+        <p id="mic-caption" class="mic-caption">Listening to the question&hellip;</p>
+        <div class="waveform" id="waveform" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <audio id="question-audio" preload="auto"></audio>
+    </section>
+
+    <!-- FEEDBACK SCREEN -->
+    <section class="screen" id="screen-feedback" hidden>
+      <span class="eyebrow small">Session complete</span>
+      <h1>Your feedback</h1>
+
+      <div class="score-block">
+        <div class="score-dial">
+          <span id="score-value">-</span>
+          <span class="score-max">/5</span>
+        </div>
+        <p class="score-subject" id="feedback-subject-label"></p>
+      </div>
+
+      <div class="feedback-copy">
+        <h3>What went well</h3>
+        <p id="feedback-strengths"></p>
+
+        <h3>Where to improve</h3>
+        <p id="feedback-improvements"></p>
+      </div>
+
+      <button id="restart-btn" class="btn-primary" type="button">
+        <span>Start a new interview</span>
+      </button>
+    </section>
+
+    <!-- HISTORY SCREEN -->
+    <section class="screen" id="screen-history" hidden>
+      <span class="eyebrow small">Archive</span>
+      <h1>Past sessions</h1>
+      <div id="history-list" class="history-list"></div>
+      <button id="history-back" class="btn-secondary" type="button">Back</button>
+    </section>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

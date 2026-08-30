@@ -1,4 +1,6 @@
-.env
-venv/
-__pycache__/
-*.pycvenv/
+backend/venv/
+backend/.env
+backend/interviews.db
+backend/__pycache__/
+**/__pycache__/
+*.pyc
