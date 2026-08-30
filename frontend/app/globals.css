@@ -1,0 +1,158 @@
+/*
+ * SkillBridge — Global Styles & Design System v2
+ * Career Intelligence Platform Design Language
+ */
+
+@import "tailwindcss";
+
+:root {
+  /* -----------------------------------------------------------------
+   * Color System (Semantic)
+   * ----------------------------------------------------------------- */
+  --bg-main:              #F6F3EC;
+  --bg-subtle:            #FAF8F4;
+  --paper-dim:            #EDE8DB;
+  
+  --card-bg:              #FFFFFF;
+  --card-border:          #E2DCCE;
+  --card-border-hover:    #B8823A;
+
+  --ink:                  #12203D;
+  --ink-mid:              #3E4E72;
+  --text-primary:         #12203D;
+  --text-secondary:       #4A5568;
+  --text-mute:            #718096;
+
+  /* Brand Accents */
+  --brass:                #B8823A;
+  --brass-soft:           #F5E8D3;
+  --brass-border:         #E3C594;
+  
+  --teal:                 #24685A;
+  --teal-soft:            #E4F2EE;
+  --teal-border:          #A3D4C7;
+
+  --coral:                #B24A2E;
+  --coral-soft:           #FCEAE8;
+  --coral-border:         #F1B9B4;
+
+  --line:                 #E2DCCE;
+  --line-strong:          #C9C1AF;
+
+  /* Typography */
+  --font-display:         "Fraunces", Georgia, serif;
+  --font-body:            "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono:            "IBM Plex Mono", "Courier New", monospace;
+
+  /* Layout & Elevation */
+  --sidebar-w:            230px;
+  --radius-sm:            8px;
+  --radius-md:            12px;
+  --radius-lg:            16px;
+  --radius:               14px;
+
+  --shadow-sm:            0 1px 3px rgba(18, 32, 61, 0.04);
+  --shadow-md:            0 4px 14px rgba(18, 32, 61, 0.07);
+  --shadow-hover:         0 8px 24px rgba(18, 32, 61, 0.11);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; }
+button { font-family: var(--font-body); cursor: pointer; }
+:focus-visible { outline: 2.5px solid var(--brass); outline-offset: 2px; }
+
+/* -----------------------------------------------------------------
+ * Semantic Badges & Tags
+ * ----------------------------------------------------------------- */
+.sb-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--paper-dim);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--ink-mid);
+}
+
+.tag-have  { background: var(--teal-soft);  border-color: var(--teal-border); color: var(--teal); }
+.tag-gap   { background: var(--coral-soft); border-color: var(--coral-border); color: var(--coral); }
+.tag-brass { background: var(--brass-soft); border-color: var(--brass-border); color: #6b4a15; }
+
+/* -----------------------------------------------------------------
+ * Cards & Layout Components
+ * ----------------------------------------------------------------- */
+.sb-card-v2 {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sb-card-v2:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.sb-card-interactive {
+  cursor: pointer;
+}
+
+.sb-card-interactive:hover {
+  border-color: var(--card-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* -----------------------------------------------------------------
+ * Custom Visualizations
+ * ----------------------------------------------------------------- */
+.skill-node {
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  transition: all 0.2s ease;
+}
+
+.skill-node:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-md);
+}
+
+.empty-state {
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-mute);
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius-md);
+  background-color: rgba(246, 243, 236, 0.4);
+}
