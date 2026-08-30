@@ -14,6 +14,8 @@ from opportunities.views import (
     RoleDetailView,
     RoleRecommendationView,
 )
+from learning.views import NextSkillView
+
 def health_check(request):
     return JsonResponse({
         "status": "ok",
@@ -65,11 +67,18 @@ urlpatterns = [
         RoleRecommendationView.as_view(),
         name="role-recommendations",
     ),
-    
+
     path(
         "roles/<int:role_id>/",
         RoleDetailView.as_view(),
         name="role-detail",
     ),
+
+    path(
+        "learning/next/",
+        NextSkillView.as_view(),
+        name="next-skill",
+    ),
 ]
+
 

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'interviews',
     'preparation',
     'analytics',
+    "learning",
 ]
 
 MIDDLEWARE = [
