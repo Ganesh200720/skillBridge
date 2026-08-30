@@ -607,6 +607,14 @@ users = [
         "Reddy",
         User.Role.INSTITUTION,
     ),
+    (
+        "teacher1",
+        "teacher@skillbridge.com",
+        "teacher123",
+        "Anita",
+        "Sharma",
+        User.Role.TEACHER,
+    ),
 ]
 
 
