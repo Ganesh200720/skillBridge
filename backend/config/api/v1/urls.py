@@ -12,8 +12,8 @@ from students.views import SkillTwinView
 from opportunities.views import (
     RoleListView,
     RoleDetailView,
+    RoleRecommendationView,
 )
-
 def health_check(request):
     return JsonResponse({
         "status": "ok",
@@ -54,13 +54,18 @@ urlpatterns = [
         SkillTwinView.as_view(),
         name="skill-twin",
     ),
-
     path(
         "roles/",
         RoleListView.as_view(),
         name="role-list",
     ),
 
+    path(
+        "roles/recommendations/",
+        RoleRecommendationView.as_view(),
+        name="role-recommendations",
+    ),
+    
     path(
         "roles/<int:role_id>/",
         RoleDetailView.as_view(),

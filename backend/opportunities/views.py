@@ -269,3 +269,165 @@ class RoleDetailView(APIView):
                     gaps,
             }
         )
+
+class RoleRecommendationView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        if request.user.role != "student":
+            return Response(
+                {
+                    "detail": "Only students can get role recommendations."
+                },
+                status=403,
+            )
+
+        roles = (
+            Role.objects
+            .filter(is_active=True)
+            .prefetch_related(
+                "role_skills",
+                "role_skills__skill",
+            )
+        )
+
+        student_skills = {
+            student_skill.skill_id: student_skill
+            for student_skill in (
+                StudentSkill.objects
+                .filter(student=request.user)
+                .select_related("skill")
+            )
+        }
+
+        recommendations = []
+
+        for role in roles:
+
+            total_weight = 0
+            achieved_weight = 0
+
+            gaps = []
+
+            assessed_count = 0
+
+            for requirement in role.role_skills.all():
+
+                skill = requirement.skill
+                weight = requirement.weight
+
+                total_weight += weight
+
+                student_skill = student_skills.get(
+                    skill.id
+                )
+
+                if student_skill:
+
+                    assessed_count += 1
+
+                    score = student_skill.score
+
+                    achieved_weight += (
+                        min(score / 100, 1)
+                        * weight
+                    )
+
+                    if score < requirement.minimum_score:
+
+                        gaps.append(
+                            {
+                                "skill": skill.name,
+                                "current_score": score,
+                                "required_score":
+                                    requirement.minimum_score,
+                                "gap": round(
+                                    requirement.minimum_score
+                                    - score,
+                                    2,
+                                ),
+                                "importance":
+                                    requirement.importance,
+                            }
+                        )
+
+                else:
+
+                    gaps.append(
+                        {
+                            "skill": skill.name,
+                            "current_score": None,
+                            "required_score":
+                                requirement.minimum_score,
+                            "gap":
+                                requirement.minimum_score,
+                            "importance":
+                                requirement.importance,
+                        }
+                    )
+
+            if total_weight > 0:
+
+                readiness = (
+                    achieved_weight
+                    / total_weight
+                    * 100
+                )
+
+            else:
+
+                readiness = 0
+
+            readiness = round(
+                readiness,
+                2,
+            )
+
+            if readiness >= 85:
+                level = "high"
+
+            elif readiness >= 70:
+                level = "good"
+
+            elif readiness >= 50:
+                level = "developing"
+
+            else:
+                level = "low"
+
+            # Required gaps first
+            gaps.sort(
+                key=lambda gap: (
+                    gap["importance"] != "required",
+                    -(gap["gap"] or 0),
+                )
+            )
+
+            recommendations.append(
+                {
+                    "role_id": role.id,
+                    "role": role.title,
+                    "readiness": readiness,
+                    "level": level,
+                    "assessed_skills":
+                        assessed_count,
+                    "total_skills":
+                        role.role_skills.count(),
+                    "skill_gaps":
+                        gaps[:3],
+                }
+            )
+
+        # Highest readiness first
+        recommendations.sort(
+            key=lambda item: item["readiness"],
+            reverse=True,
+        )
+
+        return Response(
+            {
+                "recommendations":
+                    recommendations
+            }
+        )
