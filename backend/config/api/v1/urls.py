@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.urls import path
 from interviews.views import AIInterviewStartView
 
-from accounts.views import LoginView, MeView
+from accounts.views import LoginView, MeView, SignupView
 from assessments.views import (
     SkillTestListView,
     SkillTestDetailView,
@@ -42,6 +42,13 @@ urlpatterns = [
     path("health/", health_check, name="health"),
 
     path("auth/login/", LoginView.as_view(), name="login"),
+    path("auth/login/", LoginView.as_view(), name="login"),
+    path(
+        "auth/signup/",
+        SignupView.as_view(),
+        name="signup",
+    ),
+    path("auth/me/", MeView.as_view(), name="me"),
     path("auth/me/", MeView.as_view(), name="me"),
     path(
     "skill-tests/",
@@ -159,6 +166,8 @@ urlpatterns = [
         AIInterviewStartView.as_view(),
         name="ai-interview-start",
     ),
+
+    
 ]
 
 
