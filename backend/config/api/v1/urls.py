@@ -7,6 +7,7 @@ from assessments.views import (
     SkillTestDetailView,
     SkillTestStartView,
     SkillTestSubmitView,
+    AssessmentHistoryView,
 )
 from students.views import SkillTwinView
 from opportunities.views import (
@@ -78,6 +79,12 @@ urlpatterns = [
         "learning/next/",
         NextSkillView.as_view(),
         name="next-skill",
+    ),
+
+    path(
+        "assessment-history/",
+        AssessmentHistoryView.as_view(),
+        name="assessment-history",
     ),
 ]
 

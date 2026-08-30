@@ -415,7 +415,17 @@ class SkillTestSubmitView(APIView):
 
         student_skill.evidence_count += 1
 
-        student_skill.level = level
+        if new_score >= 85:
+            student_skill.level = "advanced"
+
+        elif new_score >= 70:
+            student_skill.level = "intermediate"
+
+        elif new_score >= 50:
+            student_skill.level = "beginner"
+
+        else:
+            student_skill.level = "beginner"
 
         student_skill.last_assessed = (
             timezone.now()
@@ -494,4 +504,101 @@ class SkillTestSubmitView(APIView):
                 },
             },
             status=status.HTTP_201_CREATED,
+        )
+
+class AssessmentHistoryView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        if request.user.role != "student":
+            return Response(
+                {
+                    "detail": "Only students have assessment history."
+                },
+                status=status.HTTP_403_FORBIDDEN,
+            )
+
+        attempts = (
+            Attempt.objects
+            .filter(
+                student=request.user,
+                completed=True,
+            )
+            .select_related(
+                "test",
+                "test__skill",
+            )
+            .prefetch_related(
+                "skill_result__topic_results",
+            )
+            .order_by("-completed_at")
+        )
+
+        history = []
+
+        for attempt in attempts:
+
+            try:
+                result = attempt.skill_result
+            except SkillResult.DoesNotExist:
+                continue
+
+            history.append(
+                {
+                    "attempt_id": attempt.id,
+
+                    "test_id": attempt.test.id,
+
+                    "test_title":
+                        attempt.test.title,
+
+                    "skill": {
+                        "id":
+                            attempt.test.skill.id,
+
+                        "name":
+                            attempt.test.skill.name,
+                    },
+
+                    "score":
+                        result.score,
+
+                    "correct_answers":
+                        result.correct_answers,
+
+                    "total_questions":
+                        result.total_questions,
+
+                    "confidence":
+                        result.confidence,
+
+                    "completed_at":
+                        attempt.completed_at,
+
+                    "topics": [
+                        {
+                            "topic":
+                                topic.topic,
+
+                            "score":
+                                topic.score,
+
+                            "correct_answers":
+                                topic.correct_answers,
+
+                            "total_questions":
+                                topic.total_questions,
+                        }
+                        for topic
+                        in result.topic_results.all()
+                    ],
+                }
+            )
+
+        return Response(
+            {
+                "count": len(history),
+                "history": history,
+            }
         )
