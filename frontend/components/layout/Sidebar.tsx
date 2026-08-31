@@ -258,7 +258,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               style={{
                 background: "none",
                 border: "1px solid rgba(246,243,236,0.25)",
-                color: "var(--paper)",
+                color: "#F6F3EC",
                 padding: "7px 12px",
                 borderRadius: "8px",
                 fontSize: "12px",
